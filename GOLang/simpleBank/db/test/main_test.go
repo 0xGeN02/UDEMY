@@ -6,6 +6,7 @@ import (
 	"os"
 	"testing"
 
+	sqlc "github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/sqlc"
 	_ "github.com/lib/pq"
 )
 
@@ -14,13 +15,13 @@ const (
 	dbSource = "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable"
 )
 
-var testQueries *Queries
+var testQueries *sqlc.Queries
 
 func TestMain(m *testing.M) {
 	conn, err := sql.Open(dbDriver, dbSource)
 	if err != nil {
 		log.Fatal("cannot connect to db:", err)
 	}
-	testQueries = New(conn)
+	testQueries = sqlc.New(conn)
 	os.Exit(m.Run())
 }
