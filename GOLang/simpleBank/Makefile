@@ -11,5 +11,5 @@ migratedown:
 sqlc:
 	docker run --rm -v .:/src -w /src sqlc/sqlc generate
 test:
-	go test -v -cover ./...
+	go test -v -cover -coverpkg=github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/sqlc ./...
 .PHONY: postgres createdb dropdb migrateup migratedown sqlc test

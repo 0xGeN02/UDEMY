@@ -19,8 +19,7 @@ type Account struct {
 type Entry struct {
 	ID        int64 `json:"id"`
 	AccountID int64 `json:"account_id"`
-	// can be positive or negative
-	Amount    int64     `json:"amount"`
+	Amount    int64     `json:"amount"` // can be positive or negative
 	CreatedAt time.Time `json:"created_at"`
 }
 
@@ -28,8 +27,6 @@ type Transfer struct {
 	ID            int64 `json:"id"`
 	FromAccountID int64 `json:"from_account_id"`
 	ToAccountID   int64 `json:"to_account_id"`
-	// must be positive
-	Amount int64 `json:"amount"`
-	// the time when the transfer was created
-	CreatedAt time.Time `json:"created_at"`
+	Amount int64 `json:"amount"` // must be positive
+	CreatedAt time.Time `json:"created_at"` // the time when the transfer was created
 }
