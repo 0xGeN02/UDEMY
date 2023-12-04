@@ -4,13 +4,14 @@ import (
 	"context"
 
 	sqlc "github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/sqlc"
+	util "github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/util"
 )
 
 // Function to create a random entry
 func CreateRandomEntry(queries *sqlc.Queries, account sqlc.Account) (sqlc.Entry, error) {
 	arg := sqlc.CreateEntryParams{
 		AccountID: account.ID,
-		Amount:    RandomMoney(),
+		Amount:    util.RandomMoney(),
 	}
 	entry, err := queries.CreateEntry(context.Background(), arg)
 	if err != nil {

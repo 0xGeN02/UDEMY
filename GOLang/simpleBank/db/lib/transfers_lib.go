@@ -4,6 +4,7 @@ import (
 	"context"
 
 	sqlc "github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/sqlc"
+	util "github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/util"
 )
 
 // Function to create a random transfer
@@ -11,7 +12,7 @@ func CreateRandomTransfer(queries *sqlc.Queries, fromAccount, toAccount sqlc.Acc
 	arg := sqlc.CreateTransferParams{
 		FromAccountID: fromAccount.ID,
 		ToAccountID:   toAccount.ID,
-		Amount:        RandomMoney(),
+		Amount:        util.RandomMoney(),
 	}
 	transfer, err := queries.CreateTransfer(context.Background(), arg)
 	if err != nil {

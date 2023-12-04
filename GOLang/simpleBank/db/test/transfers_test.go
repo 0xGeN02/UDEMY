@@ -4,15 +4,15 @@ import (
 	"testing"
 	"time"
 
-	util "github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/util"
-	"github.com/stretchr/testify/require"
+	lib "github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/lib"
+	require "github.com/stretchr/testify/require"
 )
 
 // Test CreateTransfer
 func TestCreateTransfer(t *testing.T) {
-	account1, _ := util.CreateRandomAccount(testQueries)
-	account2, _ := util.CreateRandomAccount(testQueries)
-	transfer, err := util.CreateRandomTransfer(testQueries, account1, account2)
+	account1, _ := lib.CreateRandomAccount(testQueries)
+	account2, _ := lib.CreateRandomAccount(testQueries)
+	transfer, err := lib.CreateRandomTransfer(testQueries, account1, account2)
 	require.NoError(t, err)
 	require.NotEmpty(t, transfer)
 
@@ -22,10 +22,10 @@ func TestCreateTransfer(t *testing.T) {
 
 // Test GetTransfer
 func TestGetTransfer(t *testing.T) {
-	account1, _ := util.CreateRandomAccount(testQueries)
-	account2, _ := util.CreateRandomAccount(testQueries)
-	transfer1, _ := util.CreateRandomTransfer(testQueries, account1, account2)
-	transfer2, err := util.GetRandomTransfer(testQueries, transfer1)
+	account1, _ := lib.CreateRandomAccount(testQueries)
+	account2, _ := lib.CreateRandomAccount(testQueries)
+	transfer1, _ := lib.CreateRandomTransfer(testQueries, account1, account2)
+	transfer2, err := lib.GetRandomTransfer(testQueries, transfer1)
 	require.NoError(t, err)
 	require.NotEmpty(t, transfer2)
 
@@ -38,13 +38,13 @@ func TestGetTransfer(t *testing.T) {
 
 // Test ListTransfers
 func TestListTransfers(t *testing.T) {
-	account1, _ := util.CreateRandomAccount(testQueries)
-	account2, _ := util.CreateRandomAccount(testQueries)
+	account1, _ := lib.CreateRandomAccount(testQueries)
+	account2, _ := lib.CreateRandomAccount(testQueries)
 	for i := 0; i < 10; i++ {
-		util.CreateRandomTransfer(testQueries, account1, account2)
+		lib.CreateRandomTransfer(testQueries, account1, account2)
 	}
 
-	transfers, err := util.ListRandomTransfers(testQueries, account1.ID, 5, 0)
+	transfers, err := lib.ListRandomTransfers(testQueries, account1.ID, 5, 0)
 	require.NoError(t, err)
 	require.Len(t, transfers, 5)
 

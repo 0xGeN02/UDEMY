@@ -4,14 +4,14 @@ import (
 	"testing"
 	"time"
 
-	util "github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/util"
-	"github.com/stretchr/testify/require"
+	lib "github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/lib"
+	require "github.com/stretchr/testify/require"
 )
 
 // Test CreateEntry
 func TestCreateEntry(t *testing.T) {
-	account, _ := util.CreateRandomAccount(testQueries)
-	entry, err := util.CreateRandomEntry(testQueries, account)
+	account, _ := lib.CreateRandomAccount(testQueries)
+	entry, err := lib.CreateRandomEntry(testQueries, account)
 	require.NoError(t, err)
 	require.NotEmpty(t, entry)
 
@@ -21,9 +21,9 @@ func TestCreateEntry(t *testing.T) {
 
 // Test GetEntry
 func TestGetEntry(t *testing.T) {
-	account, _ := util.CreateRandomAccount(testQueries)
-	entry1, _ := util.CreateRandomEntry(testQueries, account)
-	entry2, err := util.GetRandomEntry(testQueries, entry1)
+	account, _ := lib.CreateRandomAccount(testQueries)
+	entry1, _ := lib.CreateRandomEntry(testQueries, account)
+	entry2, err := lib.GetRandomEntry(testQueries, entry1)
 	require.NoError(t, err)
 	require.NotEmpty(t, entry2)
 
@@ -35,12 +35,12 @@ func TestGetEntry(t *testing.T) {
 
 // Test ListEntries
 func TestListEntries(t *testing.T) {
-	account, _ := util.CreateRandomAccount(testQueries)
+	account, _ := lib.CreateRandomAccount(testQueries)
 	for i := 0; i < 10; i++ {
-		util.CreateRandomEntry(testQueries, account)
+		lib.CreateRandomEntry(testQueries, account)
 	}
 
-	entries, err := util.ListRandomEntries(testQueries, account.ID, 5, 0)
+	entries, err := lib.ListRandomEntries(testQueries, account.ID, 5, 0)
 	require.NoError(t, err)
 	require.Len(t, entries, 5)
 

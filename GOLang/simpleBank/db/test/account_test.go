@@ -5,13 +5,13 @@ import (
 	"testing"
 	"time"
 
-	util "github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/util"
-	"github.com/stretchr/testify/require"
+	lib "github.com/0xGeN02/UDEMY/GOLang/simpleBank/db/lib"
+	require "github.com/stretchr/testify/require"
 )
 
 // Function to test CreateAccount
 func TestCreateAccount(t *testing.T) {
-	account, err := util.CreateRandomAccount(testQueries)
+	account, err := lib.CreateRandomAccount(testQueries)
 	require.NoError(t, err)
 	require.NotEmpty(t, account)
 
@@ -20,9 +20,10 @@ func TestCreateAccount(t *testing.T) {
 }
 
 func TestDeleteAccount(t *testing.T) {
-	account1, _ := util.CreateRandomAccount(testQueries)
-	err := util.DeleteRandomAccount(testQueries, account1)
+	account1, _ := lib.CreateRandomAccount(testQueries)
+	err := lib.DeleteRandomAccount(testQueries, account1)
 	require.NoError(t, err)
+	require.NotEmpty(t, account1)
 
 	account2, err := testQueries.GetAccount(context.Background(), account1.ID)
 	require.Error(t, err)
@@ -30,8 +31,8 @@ func TestDeleteAccount(t *testing.T) {
 }
 
 func TestGetAccount(t *testing.T) {
-	account1, _ := util.CreateRandomAccount(testQueries)
-	account2, err := util.GetRandomAccount(testQueries, account1)
+	account1, _ := lib.CreateRandomAccount(testQueries)
+	account2, err := lib.GetRandomAccount(testQueries, account1)
 	require.NoError(t, err)
 	require.NotEmpty(t, account2)
 
@@ -45,10 +46,10 @@ func TestGetAccount(t *testing.T) {
 // Function to test ListAccounts
 func TestListAccounts(t *testing.T) {
 	for i := 0; i < 10; i++ {
-		util.CreateRandomAccount(testQueries)
+		lib.CreateRandomAccount(testQueries)
 	}
 
-	accounts, err := util.ListRandomAccounts(testQueries, 5, 0)
+	accounts, err := lib.ListRandomAccounts(testQueries, 5, 0)
 	require.NoError(t, err)
 	require.Len(t, accounts, 5)
 
