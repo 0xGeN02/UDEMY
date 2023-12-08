@@ -6,7 +6,8 @@ Simple Bank es una aplicación de banca básica construida con el propósito de 
 
 ## Tecnologías/Lenguajes Utilizados
 
-Go (Golang): El lenguaje de programación principal utilizado para desarrollar la aplicación.
+Go (GoLang): El lenguaje de programación principal utilizado para desarrollar la aplicación.
+
 PostgreSQL: Sistema de gestión de bases de datos relacional utilizado para almacenar los datos de la aplicación.
 
 Docker: Utilizado para contenerizar la aplicación y sus dependencias, lo que facilita el despliegue y la distribución.
