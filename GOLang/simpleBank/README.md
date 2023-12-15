@@ -29,4 +29,4 @@ Simple Bank es una aplicación de banca básica construida con el propósito de 
 [db/sqlc/Readme.md](db/sqlc/Readme.md)
 
 **LOGIC README**
-[db/Readme.md](db/Readme.md)
+[db/Readme.md](db/README.md)
