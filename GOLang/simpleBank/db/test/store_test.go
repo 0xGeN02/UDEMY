@@ -10,6 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// Test Transfer Transaction
 func TestTransferTx(t *testing.T) {
 	store := sqlc.NewStore(testDB)
 

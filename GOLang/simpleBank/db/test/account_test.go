@@ -19,6 +19,7 @@ func TestCreateAccount(t *testing.T) {
 	require.NotZero(t, account.CreatedAt)
 }
 
+// Function to test DeleteAccount
 func TestDeleteAccount(t *testing.T) {
 	account1, _ := lib.CreateRandomAccount(testQueries)
 	err := lib.DeleteRandomAccount(testQueries, account1)
@@ -30,6 +31,7 @@ func TestDeleteAccount(t *testing.T) {
 	require.Empty(t, account2)
 }
 
+// Function to test GetAccount
 func TestGetAccount(t *testing.T) {
 	account1, _ := lib.CreateRandomAccount(testQueries)
 	account2, err := lib.GetRandomAccount(testQueries, account1)
