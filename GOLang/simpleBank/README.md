@@ -1,7 +1,7 @@
 # Simple Bank
 
-[!INPORTANT]
-Hay varios readme, puedes acceder a todos ellos desde el readme general del proyecto
+>[!important]
+>Hay varios readme, puedes acceder a todos ellos desde el readme general del proyecto
 
 ## Descripción General
 
