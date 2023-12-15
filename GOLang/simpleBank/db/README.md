@@ -6,11 +6,11 @@ Simple Bank es una aplicación de banca básica construida con el propósito de 
 
 ## db/lib
 
-En esta carpeta, encontramos las siguientes funciones:
+En esta carpeta, encontramos las siguientes archivos:
 
-- `CreateRandomEntry`: Esta función se encuentra en [entries_lib.go](simpleBank/db/lib/entries_lib.go) y se utiliza para crear una entrada aleatoria en la base de datos.
-- `CreateRandomTransfer`: Esta función se encuentra en [transfers_lib.go](simpleBank/db/lib/transfers_lib.go) y se utiliza para crear una transferencia aleatoria en la base de datos.
-- `CreateRandomAccount`: Esta función se encuentra en [transfers_lib.go](simpleBank/db/lib/account_lib.go) y se utiliza para crear una cuenta aleatoria en la base de datos.
+- `entries_lib.go`: Esta libreria se encuentra en [entries_lib.go](lib/entries_lib.go). Contiene la funcionalidad para la query entries.
+- `transfers_lib.go`: Esta libreria se encuentra en [transfers_lib.go](lib/transfers_lib.go). Contiene la funcionalidad para la query tranfers.
+- `account_lib.go`: Esta libreria se encuentra en [transfers_lib.go](lib/account_lib.go). Contiene la funcionalidad para la query account.
 
 ## db/migration
 
@@ -24,6 +24,8 @@ Esta carpeta contiene los scripts de migración de la base de datos. Los scripts
 Esta carpeta contiene las consultas SQL que se utilizan en la aplicación. Las consultas son:
 
 - `account.sql`: Este archivo contiene las consultas SQL para crear, obtener, listar, actualizar y eliminar cuentas.
+- `entries.sql`: Este archivo contiene las consultas SQL para crear, obtener, listar, actualizar y eliminar entradas.
+- `transfers.sql`: Este archivo contiene las consultas SQL para crear, obtener, listar, actualizar y eliminar transacciones.
 
 ## db/sqlc
 
